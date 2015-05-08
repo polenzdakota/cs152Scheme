@@ -1,4 +1,4 @@
-; Authors Matt Pleva, Donovon Bacon, Dakota Polenz
+; Authors Matt Pleva - 17, Donovon Bacon - 2, Dakota Polenz - 18
 ; CS152
 ; 2015-03-11
 ; Homework 2 - Topological Sort in Scheme
@@ -25,10 +25,10 @@
   )
 )
 
-; finds nodes with zero indegree 
+; finds nodes with zero indegree
 (define (findZeroIndegree origList nodeList)
   (if (equal? origList '()) nodeList
-    (findZeroIndegree (cdr origList) (createListWithoutElement nodeList (cdr (car origList)))) 
+    (findZeroIndegree (cdr origList) (createListWithoutElement nodeList (cdr (car origList))))
     ; recursively call function and create build list with zero indegree nodes
   )
 )
@@ -45,7 +45,7 @@
 
 ; define topological sort function
 (define (topoSort l)
-  (if (equal? l '()) '() ; check for empty list 
+  (if (equal? l '()) '() ; check for empty list
     (append (list (car(findZeroIndegree l (buildList l))))
       (topoSort ; recursively call topological sort
         (removeNodeFromGraph
